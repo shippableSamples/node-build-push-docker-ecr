@@ -47,8 +47,8 @@ integrations:
       on_failure: always
       on_pull_request: never
 
-# adding google container registry integration so that credentials are available to CI Job
-# http://docs.shippable.com/integrations/imageRegistries/dockerHub/
+# adding AWS elastic container registry integration so that credentials are available to CI Job
+# http://docs.shippable.com/integrations/imageRegistries/ecr/
   hub:
     - integrationName: ecrHub
       type: ecr
