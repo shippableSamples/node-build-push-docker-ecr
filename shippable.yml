@@ -31,8 +31,8 @@ build:
     - popd
 
   post_ci:
-    - docker build -t $GOOGLE_GCR_URL/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER .
-    - docker push $GOOGLE_GCR_URL/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER
+    - docker build -t $AWS_ECR_URL/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER .
+    - docker push $AWS_ECR_URL/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER
 
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/
