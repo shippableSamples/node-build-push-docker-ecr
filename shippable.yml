@@ -19,6 +19,8 @@ env:
     - AWS_ECR_URL=374168611083.dkr.ecr.us-east-1.amazonaws.com # {AWS account ID}.dkr.ecr.us-east-1
 
 build:
+
+  # http://docs.shippable.com/ci/shippableyml/#ci
   ci:
     # npm mirrors can sometimes be flacky, better to use shippable_retry
     # http://docs.shippable.com/ci/advancedOptions/retry/
@@ -30,6 +32,7 @@ build:
     - $MOD_LOC/istanbul report cobertura --dir $CODE_COVERAGE_DIR
     - popd
 
+  # http://docs.shippable.com/ci/shippableyml/#post_ci
   post_ci:
     - docker build -t $AWS_ECR_URL/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER .
     - docker push $AWS_ECR_URL/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER
@@ -37,18 +40,19 @@ build:
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/
 integrations:
-# http://docs.shippable.com/ci/shippableyml/#notifications
+
+  # http://docs.shippable.com/ci/shippableyml/#notifications
   notifications:
-# turning of email for PR builds, get notified only on failure and change in status
-# http://docs.shippable.com/integrations/notifications/email/
+    # turning of email for PR builds, get notified only on failure and change in status
+    # http://docs.shippable.com/integrations/notifications/email/
     - integrationName: email
       type: email
       on_success: change
       on_failure: always
       on_pull_request: never
 
-# adding AWS elastic container registry integration so that credentials are available to CI Job
-# http://docs.shippable.com/integrations/imageRegistries/ecr/
+  # adding AWS elastic container registry integration so that credentials are available to CI Job
+  # http://docs.shippable.com/integrations/imageRegistries/ecr/
   hub:
     - integrationName: ecrHub
       type: ecr
