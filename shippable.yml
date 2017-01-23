@@ -51,4 +51,4 @@ integrations:
 # http://docs.shippable.com/integrations/imageRegistries/dockerHub/
   hub:
     - integrationName: ecrHub
-      type: ecrHub
+      type: ecr
