@@ -1,12 +1,14 @@
 ![AyeAye](https://github.com/shippableSamples/node-build-push-docker-ecr/blob/master/public/resources/images/captain.png)
 
-# Docker Build, Push to Google Container Registry and Continuous Integration for a Node JS application
+# Docker Build, Push to Amazon EC/2 Container Registry and Continuous Integration for a Node JS application
 [![Run Status](https://api.shippable.com/projects/588657ed3b7d560f0092e20e/badge?branch=master)](https://app.shippable.com/projects/588657ed3b7d560f0092e20e)
 [![Coverage Badge](https://api.shippable.com/projects/588657ed3b7d560f0092e20e/coverageBadge?branch=master)](https://app.shippable.com/projects/588657ed3b7d560f0092e20e)
 
 A simple Node JS application with unit tests and coverage reports using mocha 
-and istanbul. It also does a docker build once CI posses and then pushes the image
-to Google Container Registry
+and istanbul. Thie repo demonstrates the following features:
+  * Set up serverless CI, i.e. on Shippable-provided infrastructure
+  * Perform CI tests
+  * Perform docker build and push image to Amazon EC/2 Container Registry (ECR)
 
 ## Run CI for this repo on Shippable
 * Fork this repo into your local repo
